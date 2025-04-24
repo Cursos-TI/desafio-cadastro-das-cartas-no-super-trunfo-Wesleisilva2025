@@ -1,23 +1,45 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
-// Siga os comentários para implementar cada parte do desafio.
-//Teste larissa
-
 int main() {
-    printf("teste jogo de cartas");
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
+    char Estado[20];
+    char Codigo[10];
+    char Nome[10];
+    int Populacao;
+    float Area;
+    float PIB;
+    int Numero;
     
-    // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
-    
-    // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
+    printf("Digite o Estado: \n");
+    scanf("%s", Estado);  // Sin & porque Estado es un arreglo de caracteres
+
+    printf("Digite o Codigo: \n");
+    scanf("%s", Codigo);  // Sin & porque Codigo es un arreglo de caracteres
+
+    printf("Digite o Nome: \n");
+    scanf("%s", Nome);    // Sin & porque Nome es un arreglo de caracteres
+
+    printf("Digite a Populacao: \n");
+    scanf("%d", &Populacao);
+
+    printf("Digite a Area: \n");
+    scanf("%f", &Area);
+
+    printf("Digite o PIB: \n");
+    scanf("%f", &PIB);
+
+    printf("Digite o Numero: \n");
+    scanf("%d", &Numero);
+
+    // Mostrar los datos uno por línea, como sugieren los comentarios
+    printf("Estado: %s\n", Estado);
+    printf("Codigo: %s\n", Codigo);
+    printf("Nome: %s\n", Nome);
+    printf("Populacao: %d\n", Populacao);
+    printf("Area: %.2f\n", Area);  // %.2f para mostrar solo 2 decimales
+    printf("PIB: %.2f\n", PIB);    // %.2f para mostrar solo 2 decimales
+    printf("Numero: %d\n", Numero);
 
     return 0;
 }
+
+
