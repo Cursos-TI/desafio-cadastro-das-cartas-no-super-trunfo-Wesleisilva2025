@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string.h>
+#include <locale.h>
 
 int main() {
     char Estado[20];
@@ -8,35 +10,71 @@ int main() {
     float Area;
     float PIB;
     int Numero;
-    
+
+    // Configura a codificação para suportar acentos (opcional, dependendo do sistema)
+    setlocale(LC_ALL, "Portuguese");
+
+    // Função para limpar o buffer de entrada
+    void limparBuffer() {
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF);
+    }
+
+    // Leitura do Estado
     printf("Digite o Estado: \n");
-    scanf("%s", Estado);  // Sin & porque Estado es un arreglo de caracteres
+    fgets(Estado, sizeof(Estado), stdin);
+    Estado[strcspn(Estado, "\n")] = '\0'; // Remove o \n do final
 
+    // Leitura do Código
     printf("Digite o Codigo: \n");
-    scanf("%s", Codigo);  // Sin & porque Codigo es un arreglo de caracteres
+    fgets(Codigo, sizeof(Codigo), stdin);
+    Codigo[strcspn(Codigo, "\n")] = '\0'; // Remove o \n do final
 
+    // Leitura do Nome
     printf("Digite o Nome: \n");
-    scanf("%s", Nome);    // Sin & porque Nome es un arreglo de caracteres
+    fgets(Nome, sizeof(Nome), stdin);
+    Nome[strcspn(Nome, "\n")] = '\0'; // Remove o \n do final
 
+    // Leitura da População com validação
     printf("Digite a Populacao: \n");
-    scanf("%d", &Populacao);
+    while (scanf("%d", &Populacao) != 1 || Populacao < 0) {
+        printf("Entrada invalida! Digite um numero inteiro nao negativo: \n");
+        limparBuffer();
+    }
+    limparBuffer();
 
+    // Leitura da Área com validação
     printf("Digite a Area: \n");
-    scanf("%f", &Area);
+    while (scanf("%f", &Area) != 1 || Area < 0) {
+        printf("Entrada invalida! Digite um numero real nao negativo: \n");
+        limparBuffer();
+    }
+    limparBuffer();
 
+    // Leitura do PIB com validação
     printf("Digite o PIB: \n");
-    scanf("%f", &PIB);
+    while (scanf("%f", &PIB) != 1 || PIB < 0) {
+        printf("Entrada invalida! Digite um numero real nao negativo: \n");
+        limparBuffer();
+    }
+    limparBuffer();
 
+    // Leitura do Número com validação
     printf("Digite o Numero: \n");
-    scanf("%d", &Numero);
+    while (scanf("%d", &Numero) != 1 || Numero < 0) {
+        printf("Entrada invalida! Digite um numero inteiro nao negativo: \n");
+        limparBuffer();
+    }
+    limparBuffer();
 
-    // Mostrar los datos uno por línea, como sugieren los comentarios
+    // Exibição dos dados
+    printf("\n--- Dados da Cidade ---\n");
     printf("Estado: %s\n", Estado);
     printf("Codigo: %s\n", Codigo);
     printf("Nome: %s\n", Nome);
     printf("Populacao: %d\n", Populacao);
-    printf("Area: %.2f\n", Area);  // %.2f para mostrar solo 2 decimales
-    printf("PIB: %.2f\n", PIB);    // %.2f para mostrar solo 2 decimales
+    printf("Area: %.2f\n", Area);
+    printf("PIB: %.2f\n", PIB);
     printf("Numero: %d\n", Numero);
 
     return 0;
